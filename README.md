@@ -1,2 +1,2 @@
-# Jasna
+# Technical Programming
 Programming
