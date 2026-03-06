@@ -1,0 +1,46 @@
+#Turtle Racing Game
+A fun and interactive Python turtle racing game where you can bet on which colored turtle will win the race!
+
+🎮 Game Description
+This is a simple yet entertaining racing game built with Python's turtle graphics module. Five colorful turtles compete in a race across the screen, and you get to predict which one will win!
+
+✨ Features
+Interactive Betting System - Place your bet on which turtle you think will win
+5 Colorful Racers - Red, Blue, Green, Yellow, and Purple turtles
+Random Movement - Each turtle moves forward by a random distance (0-10 units) per turn
+Win/Lose Detection - Automatically detects the winner and tells you if you won or lost
+Visual Racing - Watch the turtles race in real-time across the screen
+------------------------ code starts below -------------------------------------------------------------
+
+from turtle import Turtle, Screen
+import random
+
+screen = Screen()
+screen.setup(width=500, height=400)
+user_bet = screen.textinput(title = "Make your bet",prompt = "Which turtle will win the race. Make a Selection:")
+colors = ["red", "blue", "green", "yellow", "purple"]
+y_positions = [-70,-40,-10,20,50,80]
+all_turtles = []
+
+for color in range(0,5):
+    turtle = Turtle(shape="turtle")
+    turtle.color(colors[color])
+    turtle.penup()
+    turtle.goto(-230, y_positions[color])
+    all_turtles.append(turtle)
+
+if user_bet:
+    is_race_on = True
+
+while is_race_on:
+    for turtle in all_turtles:
+        if turtle.xcor() > 230:
+            is_race_on = False
+            winning_color = turtle.pencolor()
+            if winning_color == user_bet:
+                print("You Win!")
+            else:
+                print(f"You Lose! The {winning_color} turtle is the winner!")
+        rand_distance = random.randint(0,10)
+        turtle.forward(rand_distance)
+
