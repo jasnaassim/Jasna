@@ -27,14 +27,14 @@ news_params = {
     'q': COMPANY_NAME,
     'from': '2026-03-08',
     'sortBy': 'publishedAt',
-    'apiKey': '7dcafa30c4294120aa48fdde031188f5'
+    'apiKey': 'API'
 }
 
 params = {
     'function': 'TIME_SERIES_DAILY',
     'symbol': 'TSLA',
     'outputsize': 'compact',
-    'apikey': 'Q5XFA9LL6LY9HRJB'
+    'apikey': 'API'
 }
 
 response = requests.get(STOCK_ENDPOINT, params=params)
@@ -79,7 +79,7 @@ if len(dates) >= 2:
         messages = [
             client.messages.create(
                 body=f"{article['title']}\n\n{article['description']}",
-                from_="+18777804236",
+                from_="+xxxxxxxxxx",
                 to="+1xxxxxxxxxx"
             )
             for article in first_3_news
